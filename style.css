@@ -7,7 +7,7 @@
   --Facebook: hsl(208, 92%, 53%);
   --Twitter: hsl(203, 89%, 53%);
   --Instagram1: hsl(37, 97%, 70%);
-  --Instagram1: hsl(329, 70%, 58%);
+  --Instagram2: hsl(329, 70%, 58%);
   --YouTube: hsl(348, 97%, 39%);
   /* #### Dark Theme */
   --ToggleDM1: hsl(210, 78%, 56%) hsl(146, 68%, 55%);
@@ -71,8 +71,10 @@ header .total-followers {
 .card {
   border-radius: 8px;
   overflow: hidden;
-  background: var(--VeryPaleBlueTopBGPattern);
+  background: var(--LightGrayishBlueCardBG);
   text-align: center;
+  position: relative;
+  padding: 1.25em 0;
 }
 
 .card-title {
@@ -91,8 +93,27 @@ header .total-followers {
 .card:before {
   content: '';
   height: 4px;
-  background: var(--Facebook);
   display: block;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+}
+
+.card.facebook:before {
+  background: var(--Facebook);
+}
+
+.card.twitter:before {
+  background: var(--Twitter);
+}
+
+.card.instagram:before {
+  background-image: linear-gradient(to right, var(--Instagram1) 0%, var(--Instagram2) 100%);
+}
+
+.card.youtube:before {
+  background: var(--YouTube);
 }
 
 .card-followers {}
@@ -108,7 +129,7 @@ header .total-followers {
   color: var(--DarkGrayishBlueText);
   text-transform: uppercase;
   letter-spacing: 5px;
-  font-size: .75em;
+  font-size: .65em;
 }
 
 .card-today {
